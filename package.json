@@ -1,0 +1,40 @@
+{
+  "name": "react-skills-assessment",
+  "description": "React Developer - Coding Skills Assessment",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Vien Dinh",
+    "email": "maxvien@gmail.com",
+    "url": "https://github.com/maxvien"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@shopify/polaris": "^6.5.0",
+    "next": "^10.2.3",
+    "nextjs-progressbar": "^0.0.10",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-query": "^3.16.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.0",
+    "eslint-config-next-app": "^2.0.0",
+    "typescript": "^4.3.2"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "extends": "next-app"
+  }
+}
