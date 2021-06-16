@@ -6,9 +6,14 @@ import { QuoteImageInput, QuoteImageOutput } from '@app/shared/interfaces/api.in
 
 export namespace ImageService {
   export async function createQuote({ text, color }: QuoteImageInput): Promise<QuoteImageOutput> {
+    const hue = Math.round(color.hue);
+    const saturation = Math.round(color.saturation * 100);
+    const lightness = Math.round(color.brightness * 100);
+    const alpha = color.alpha.toFixed(1);
+
     const textImage = text2png(text, {
       font: '200px Lato',
-      color: `hsla(${color.hue}, ${color.saturation * 100}%, ${color.brightness * 100}%, ${color.alpha})`,
+      color: `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`,
       backgroundColor: 'black',
       localFontPath: path.join(process.env.PWD, 'src/backend/assets/Lato-BoldItalic.ttf'),
       localFontName: 'Lato',
