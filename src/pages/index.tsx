@@ -1,26 +1,57 @@
-import { Page as PolarisPage, Layout, Card } from '@shopify/polaris';
-import { DefaultLayout } from '@app/frontend/components/layouts/default-layout';
+import { useImmer } from 'use-immer';
+import { Spinner, Banner } from '@shopify/polaris';
+import { Layout } from '@app/frontend/components/layout';
+import { Form } from '@app/frontend/components/form';
+import { ImageService } from '@app/frontend/services/image.service';
+import { QuoteImageOutput, QuoteImageInput } from '@app/shared/interfaces/api.interface';
 
-interface Props {}
+interface Props {
+  initialData: QuoteImageOutput;
+}
 
-// Page.getInitialProps = async (): Promise<Props> => {
-//   return {};
-// };
+interface State extends QuoteImageInput {}
 
-export default function Page({}: Props) {
+const initialState: State = {
+  text: 'Hello World!',
+  color: {
+    hue: 1,
+    saturation: 0,
+    brightness: 1,
+    alpha: 1,
+  },
+};
+
+Page.getInitialProps = async (): Promise<Props> => {
+  return { initialData: await ImageService.getQuote(initialState) };
+};
+
+export default function Page({ initialData }: Props) {
+  const [state, setState] = useImmer<State>(initialState);
+
+  const { isFetching, isError, data, error } = ImageService.useQuote(
+    { input: state, options: { initialData, refetchOnMount: false } },
+    [state]
+  );
+
   return (
-    <DefaultLayout>
-      <PolarisPage title="React Developer - Coding Skills Assessment">
-        <Layout>
-          <Layout.Section>
-            <Card sectioned>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis quas assumenda magnam recusandae, nemo
-              temporibus adipisci debitis provident necessitatibus illum expedita facere vel ratione dolorem eum atque
-              tenetur blanditiis reiciendis?
-            </Card>
-          </Layout.Section>
-        </Layout>
-      </PolarisPage>
-    </DefaultLayout>
+    <Layout>
+      <Form defaultData={state} onSubmit={(data) => setState(data)} />
+      <br />
+      {(() => {
+        if (isFetching) {
+          return (
+            <div style={{ textAlign: 'center' }}>
+              <Spinner accessibilityLabel="Loading..." size="small" />
+            </div>
+          );
+        }
+
+        if (isError) {
+          return <Banner title="Error">{error.message}</Banner>;
+        }
+
+        return <img src={data} alt="" width="100%" />;
+      })()}
+    </Layout>
   );
 }

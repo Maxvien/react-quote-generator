@@ -6,7 +6,7 @@ import '@shopify/polaris/dist/styles.css';
 import { AppProvider } from '@shopify/polaris';
 import enTranslations from '@shopify/polaris/locales/en.json';
 
-import { EnvService } from '@app/frontend/services/env.service';
+import { EnvService } from '@app/shared/services/env.service';
 
 const queryClient = new QueryClient({
   defaultOptions: {

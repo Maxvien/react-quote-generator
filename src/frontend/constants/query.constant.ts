@@ -1,0 +1,1 @@
+export const QUOTE_IMAGE_QUERY = 'QUOTE_IMAGE_QUERY';

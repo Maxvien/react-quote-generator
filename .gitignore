@@ -16,6 +16,7 @@
 /build
 /public/sw.js
 /public/workbox-*.js
+public/images/*.png
 
 # misc
 .DS_Store
