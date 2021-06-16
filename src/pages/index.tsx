@@ -1,5 +1,5 @@
 import { Page as PolarisPage, Layout, Card } from '@shopify/polaris';
-import { DefaultLayout } from '@app/components/layouts/default-layout';
+import { DefaultLayout } from '@app/frontend/components/layouts/default-layout';
 
 interface Props {}
 
