@@ -3,14 +3,14 @@ import { DefaultLayout } from '@app/components/layouts/default-layout';
 
 interface Props {}
 
-Page.getInitialProps = async (): Promise<Props> => {
-  return {};
-};
+// Page.getInitialProps = async (): Promise<Props> => {
+//   return {};
+// };
 
 export default function Page({}: Props) {
   return (
     <DefaultLayout>
-      <PolarisPage title="AppAttic React Developer - Coding Skills Assessment">
+      <PolarisPage title="React Developer - Coding Skills Assessment">
         <Layout>
           <Layout.Section>
             <Card sectioned>
