@@ -569,6 +569,11 @@
     lodash "^4.17.4"
     react-transition-group "^4.4.1"
 
+"@types/find-remove@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/find-remove/-/find-remove-2.0.0.tgz#917c2c10e502b442c123de6b4dad3cf39df6c113"
+  integrity sha512-kERxPdk/t2huIodKjDuMlW9V9rD+Nhv0JUUNweVtVidmeNunH9ffZzigmEZKr4fEnVrz2s3g5CoKsby9XHbJIA==
+
 "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
@@ -1985,6 +1990,14 @@ find-cache-dir@3.3.1:
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
 
+find-remove@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/find-remove/-/find-remove-3.1.0.tgz#08f8a63ce5d9a6b759962095ef578ebb5639fe8b"
+  integrity sha512-F4DAR/JnsadDA9KZRWLZXNZjaQ9X6KJ1OcHFz1cXq4OCm1v2hxu7+hbgxIaqUzU3dzYNP5npJ/dQzaR6pEf3EQ==
+  dependencies:
+    fmerge "1.2.0"
+    rimraf "3.0.2"
+
 find-up@^2.0.0, find-up@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
@@ -2012,6 +2025,11 @@ flatted@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.1.1.tgz#c4b489e80096d9df1dfc97c79871aea7c617c469"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
+
+fmerge@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fmerge/-/fmerge-1.2.0.tgz#36e99d2ae255e3ee1af666b4df780553671cf692"
+  integrity sha1-NumdKuJV4+4a9ma033gFU2cc9pI=
 
 focus-visible@^5.2.0:
   version "5.2.0"

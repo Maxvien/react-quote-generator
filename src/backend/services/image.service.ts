@@ -2,6 +2,7 @@ import path from 'path';
 import Jimp from 'jimp';
 import text2png from 'text2png';
 import { v4 as uuidv4 } from 'uuid';
+import findRemoveSync from 'find-remove';
 import { QuoteImageInput, QuoteImageOutput } from '@app/shared/interfaces/api.interface';
 
 export namespace ImageService {
@@ -24,10 +25,13 @@ export namespace ImageService {
 
     const image = await Jimp.read(textImage);
 
-    const imageUrl = `/images/${uuidv4()}.png`;
+    const filename = `${uuidv4()}.png`;
+    const uploads = path.join(process.env.PWD, 'uploads');
 
-    await image.cover(1000, 500).writeAsync(path.join(process.env.PWD, 'public', imageUrl));
+    await image.cover(1000, 500).writeAsync(path.join(uploads, filename));
 
-    return imageUrl;
+    findRemoveSync(uploads, { extensions: ['.png'], age: { seconds: 3600 } });
+
+    return `/api/images/${filename}`;
   }
 }
