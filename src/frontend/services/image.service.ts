@@ -10,12 +10,12 @@ export namespace ImageService {
     return apiService.post<string>('quote-image', input).then(({ data }) => data);
   }
 
-  interface UseListInput {
+  interface UseQuoteInput {
     input: QuoteImageInput;
     options?: UseQueryOptions<string, Error>;
   }
 
-  export function useQuote({ input, options }: UseListInput, deps: DependencyList = []) {
+  export function useQuote({ input, options }: UseQuoteInput, deps: DependencyList = []) {
     return useQuery(
       [QUOTE_IMAGE_QUERY, ...deps],
       () => {

@@ -1,3 +1,11 @@
+import { EnvService } from '@app/shared/services/env.service';
 import axios from 'axios';
 
-export const apiService = axios.create({ baseURL: process.env.NEXT_PUBLIC_BASE_URL + '/api' });
+let baseURL = '/api';
+
+if (EnvService.isNode()) {
+  const port: number = +process.env.PORT | 3000;
+  baseURL = `http://localhost:${port}/api`;
+}
+
+export const apiService = axios.create({ baseURL });
