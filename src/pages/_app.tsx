@@ -6,14 +6,12 @@ import '@shopify/polaris/dist/styles.css';
 import { AppProvider } from '@shopify/polaris';
 import enTranslations from '@shopify/polaris/locales/en.json';
 
-import { EnvService } from '@app/shared/services/env.service';
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: EnvService.isProd(),
-      refetchIntervalInBackground: EnvService.isProd(),
-      refetchOnWindowFocus: EnvService.isProd(),
+      retry: false,
+      refetchIntervalInBackground: false,
+      refetchOnWindowFocus: false,
     },
   },
 });
