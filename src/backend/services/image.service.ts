@@ -30,7 +30,8 @@ export namespace ImageService {
 
     await image.cover(1000, 500).writeAsync(path.join(uploads, filename));
 
-    findRemoveSync(uploads, { extensions: ['.png'], age: { seconds: 3600 } });
+    // Delete image cache after 10 minutes
+    findRemoveSync(uploads, { extensions: ['.png'], age: { seconds: 600 } });
 
     return `/api/images/${filename}`;
   }
