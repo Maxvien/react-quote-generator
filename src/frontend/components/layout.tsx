@@ -23,7 +23,7 @@ const Layout: React.FC<Props> = (props) => {
   return (
     <Frame showMobileNavigation={mobileNavigationActive} onNavigationDismiss={toggleMobileNavigationActive}>
       {skipToContentTarget}
-      <PolarisPage title="React Developer - Coding Skills Assessment">
+      <PolarisPage title="React Quote Generator">
         <PolarisLayout>
           <PolarisLayout.Section>
             <Card sectioned>{props.children}</Card>
