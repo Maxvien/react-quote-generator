@@ -3,10 +3,10 @@ import Jimp from 'jimp';
 import text2png from 'text2png';
 import { v4 as uuidv4 } from 'uuid';
 import findRemoveSync from 'find-remove';
-import { QuoteImageInput, QuoteImageOutput } from '@app/shared/interfaces/api.interface';
+import { API } from '@app/shared/interfaces/api.interface';
 
 export namespace ImageService {
-  export async function createQuote({ text, color }: QuoteImageInput): Promise<QuoteImageOutput> {
+  export async function createQuote({ text, color }: API.Image.QuoteInput): Promise<API.Image.QuoteOutput> {
     const hue = Math.round(color.hue);
     const saturation = Math.round(color.saturation * 100);
     const lightness = Math.round(color.brightness * 100);

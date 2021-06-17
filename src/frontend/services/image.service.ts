@@ -2,24 +2,24 @@ import { DependencyList } from 'react';
 import { useQuery, UseQueryOptions } from 'react-query';
 
 import { apiService } from '@app/frontend/services/api.service';
-import { QuoteImageInput } from '@app/shared/interfaces/api.interface';
+import { API } from '@app/shared/interfaces/api.interface';
 import { QUOTE_IMAGE_QUERY } from '@app/frontend/constants/query.constant';
 
 export namespace ImageService {
-  export async function getQuote(input: QuoteImageInput) {
-    return apiService.post<string>('quote-image', input).then(({ data }) => data);
+  export async function createQuote(input: API.Image.QuoteInput) {
+    return apiService.post<string>('images/create', input).then(({ data }) => data);
   }
 
   interface UseQuoteInput {
-    input: QuoteImageInput;
+    input: API.Image.QuoteInput;
     options?: UseQueryOptions<string, Error>;
   }
 
-  export function useQuote({ input, options }: UseQuoteInput, deps: DependencyList = []) {
+  export function useCreateQuoteQuote({ input, options }: UseQuoteInput, deps: DependencyList = []) {
     return useQuery(
       [QUOTE_IMAGE_QUERY, ...deps],
       () => {
-        return getQuote(input);
+        return createQuote(input);
       },
       options
     );

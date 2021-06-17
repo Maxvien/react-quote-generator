@@ -3,13 +3,13 @@ import { Spinner, Banner } from '@shopify/polaris';
 import { Layout } from '@app/frontend/components/layout';
 import { Form } from '@app/frontend/components/form';
 import { ImageService } from '@app/frontend/services/image.service';
-import { QuoteImageOutput, QuoteImageInput } from '@app/shared/interfaces/api.interface';
+import { API } from '@app/shared/interfaces/api.interface';
 
 interface Props {
-  initialData: QuoteImageOutput;
+  initialData: API.Image.QuoteOutput;
 }
 
-interface State extends QuoteImageInput {}
+interface State extends API.Image.QuoteInput {}
 
 const initialState: State = {
   text: 'Hello World!',
@@ -22,13 +22,13 @@ const initialState: State = {
 };
 
 Page.getInitialProps = async (): Promise<Props> => {
-  return { initialData: await ImageService.getQuote(initialState) };
+  return { initialData: await ImageService.createQuote(initialState) };
 };
 
 export default function Page({ initialData }: Props) {
   const [state, setState] = useImmer<State>(initialState);
 
-  const { isFetching, isError, data, error } = ImageService.useQuote(
+  const { isFetching, isError, data, error } = ImageService.useCreateQuoteQuote(
     { input: state, options: { initialData, refetchOnMount: false } },
     [state]
   );

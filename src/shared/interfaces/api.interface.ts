@@ -1,8 +1,12 @@
 import { HSBAColor } from '@shopify/polaris';
 
-export interface QuoteImageInput {
-  text: string;
-  color: HSBAColor;
-}
+export namespace API {
+  export namespace Image {
+    export interface QuoteInput {
+      text: string;
+      color: HSBAColor;
+    }
 
-export type QuoteImageOutput = string;
+    export type QuoteOutput = string;
+  }
+}
