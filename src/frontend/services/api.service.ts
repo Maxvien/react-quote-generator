@@ -1,5 +1,5 @@
-import { EnvService } from '@app/shared/services/env.service';
 import axios from 'axios';
+import { EnvService } from '@app/shared/services/env.service';
 
 let baseURL = '/api';
 
