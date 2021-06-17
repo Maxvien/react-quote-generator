@@ -1,4 +1,4 @@
-import { Frame } from '@shopify/polaris';
+import { Frame, Button } from '@shopify/polaris';
 import { Page as PolarisPage, Layout as PolarisLayout, Card } from '@shopify/polaris';
 import React, { ReactNode, useState, useCallback, useRef } from 'react';
 
@@ -27,6 +27,11 @@ const Layout: React.FC<Props> = (props) => {
         <PolarisLayout>
           <PolarisLayout.Section>
             <Card sectioned>{props.children}</Card>
+            <Card sectioned>
+              <Button url="https://github.com/maxvien/react-quote-generator" fullWidth>
+                Source Code
+              </Button>
+            </Card>
           </PolarisLayout.Section>
         </PolarisLayout>
       </PolarisPage>
