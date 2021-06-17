@@ -6,10 +6,10 @@ import { ImageService } from '@app/frontend/services/image.service';
 import { API } from '@app/shared/interfaces/api.interface';
 
 interface Props {
-  initialData: API.Image.QuoteOutput;
+  initialData: API.Image.Output;
 }
 
-interface State extends API.Image.QuoteInput {}
+interface State extends API.Image.Input {}
 
 const initialState: State = {
   text: 'Hello World!',
@@ -22,13 +22,13 @@ const initialState: State = {
 };
 
 Page.getInitialProps = async (): Promise<Props> => {
-  return { initialData: await ImageService.createQuote(initialState) };
+  return { initialData: await ImageService.create(initialState) };
 };
 
 export default function Page({ initialData }: Props) {
   const [state, setState] = useImmer<State>(initialState);
 
-  const { isFetching, isError, data, error } = ImageService.useCreateQuoteQuote(
+  const { isFetching, isError, data, error } = ImageService.useCreate(
     { input: state, options: { initialData, refetchOnMount: false } },
     [state]
   );

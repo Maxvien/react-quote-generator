@@ -6,7 +6,7 @@ import findRemoveSync from 'find-remove';
 import { API } from '@app/shared/interfaces/api.interface';
 
 export namespace ImageService {
-  export async function createQuote({ text, color }: API.Image.QuoteInput): Promise<API.Image.QuoteOutput> {
+  export async function create({ text, color }: API.Image.Input): Promise<API.Image.Output> {
     const hue = Math.round(color.hue);
     const saturation = Math.round(color.saturation * 100);
     const lightness = Math.round(color.brightness * 100);
