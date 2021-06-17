@@ -4,10 +4,15 @@
 
 In this project, I have used:
 
+- API Routes to build APIs
+- Axios to interact with APIs
 - Shopify Polaris to build UI
 - React Query to cache data
-- Axios to interact with APIs
 - Next.js for Server Side Rendering
+
+## Demonstration
+
+https://maxvien-react-quote-generator.herokuapp.com/
 
 ## Getting Started
 
