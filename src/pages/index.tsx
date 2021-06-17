@@ -47,7 +47,7 @@ export default function Page({ initialData }: Props) {
         }
 
         if (isError) {
-          return <Banner title="Error">{error.message}</Banner>;
+          return <Banner status="critical">{error.message}</Banner>;
         }
 
         return <img src={data} alt="" width="100%" />;
