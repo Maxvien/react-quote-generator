@@ -16,17 +16,17 @@ export namespace ImageService {
       font: '200px Lato',
       color: `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`,
       backgroundColor: 'black',
-      localFontPath: path.join(process.env.PWD, 'src/backend/assets/Lato-BoldItalic.ttf'),
+      localFontPath: path.join(process.env.PWD, 'src/backend/assets/fonts/Lato-BoldItalic.ttf'),
       localFontName: 'Lato',
       textAlign: 'center',
       padding: 1000,
-      lineSpacing: 20,
+      lineSpacing: 10,
     });
 
     const image = await Jimp.read(textImage);
 
     const filename = `${uuidv4()}.png`;
-    const uploads = path.join(process.env.PWD, 'uploads');
+    const uploads = path.join(process.env.PWD, 'src/backend/assets/images');
 
     await image.cover(1000, 500).writeAsync(path.join(uploads, filename));
 
