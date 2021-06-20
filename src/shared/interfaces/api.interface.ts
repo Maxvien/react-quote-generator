@@ -1,6 +1,6 @@
 import { HSBAColor } from '@shopify/polaris';
 
-export namespace API {
+export namespace ApiInterface {
   export namespace Image {
     export interface Input {
       text: string;

@@ -3,13 +3,13 @@ import { Spinner, Banner } from '@shopify/polaris';
 import { Layout } from '@app/frontend/components/layout';
 import { Form } from '@app/frontend/components/form';
 import { ImageService } from '@app/frontend/services/image.service';
-import { API } from '@app/shared/interfaces/api.interface';
+import { ApiInterface } from '@app/shared/interfaces/api.interface';
 
 interface Props {
-  initialData: API.Image.Output;
+  initialData: ApiInterface.Image.Output;
 }
 
-interface State extends API.Image.Input {}
+interface State extends ApiInterface.Image.Input {}
 
 const initialState: State = {
   text: 'Hello World!',
